@@ -9,7 +9,8 @@ sidebar_position: 1
 目前
 
 1. 只适用于 `帝国 CMS`。
-2. 没有 Web UI 界面，就是单纯写配置在 PHP 文件中。
+2. 支持本机爬取、中心化爬取并远程提交。
+3. 没有 Web UI 界面，就是单纯写配置在 PHP 文件中。
 
 > 后续会进行尝试 Web UI 界面，以及其他功能。
 
@@ -21,7 +22,8 @@ sidebar_position: 1
 
 ## 需求
 
-PHP 8.0 以上。
+- PHP 8.0 以上。
+- symfony/dom-crawler
 
 ## 功能
 
@@ -43,7 +45,7 @@ chmod 777 cache
 
 ## 基础配置
 
-需要采集的站点，放在 configs/sites/ 下，名字自取，但是后续执行命令的时候，需要根据这个文件名来执行。 假如需要采集 example.com，那么可以取名为 example.com.php，然后执行 `php artisan example.com`
+需要采集的站点，放在 configs/sites/ 下，名字自取，但是后续执行命令的时候，需要根据这个文件名来执行。 假如需要采集 example.com，那么可以取名为 example.com.php，然后执行 `php artisan spider example.com`
 
 ### 配置文件范例
 
