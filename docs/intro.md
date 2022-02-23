@@ -12,8 +12,6 @@ sidebar_position: 1
 2. 支持本机爬取、中心化爬取并远程提交。
 3. 没有 Web UI 界面，就是单纯写配置在 PHP 文件中。
 
-> 后续会进行尝试 Web UI 界面，以及其他功能。
-
 ## 为什么写这个
 
 - 因笔者工作要求，需要把火车头采集器改为 PHP 执行。后面重复的代码写多了就打算规范下代码，于是就写了这个文档。
@@ -22,42 +20,24 @@ sidebar_position: 1
 
 ## 需求
 
-- PHP 8.0 以上。
+### 软件
+- PHP 8.0 以上
 - symfony/dom-crawler
+
+### 知识
+
+- Xpath
 
 ## 功能
 
-1. 使用 Xpath 采集站点
-2. 数据加工
-3. 发布内容
+1. 数据加工
+2. 发布内容
    1. 文字：发送采集到的数据到 `帝国 CMS` 的免登陆发布地址。
    2. 图片：
       1. 把本程序「PHP 爬虫」放在和目标站同一服务器中，它会下载图片到 `帝国 CMS` 目录下。
       2. 也支持远程发布，需要填写 FTP 地址。
 
-## 快速开始
+## 待办事项
 
-```shell
-git clone https://github.com/likunyan/spider-api
-mkdir cache # PHP 爬虫缓存文件夹
-chmod 777 cache
-```
+- Web UI 界面
 
-## 基础配置
-
-需要采集的站点，放在 configs/sites/ 下，名字自取，但是后续执行命令的时候，需要根据这个文件名来执行。 假如需要采集 example.com，那么可以取名为 example.com.php，然后执行 `php artisan spider example.com`
-
-### 配置文件范例
-
-```php
-<?php
-
-return [
-    'task' => [
-        [
-            'name' => '文章',
-            'url' => 'http://www.example.com',
-        ],
-    ],
-];
-```
