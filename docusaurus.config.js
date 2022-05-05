@@ -27,7 +27,7 @@ module.exports = {
           label: '文档',
         },
         {
-          href: 'https://github.com/likunyan/spider-doc',
+          href: 'https://github.com/likunyan/spider-docs',
           label: 'GitHub',
           position: 'right',
         },
