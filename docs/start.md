@@ -21,7 +21,7 @@ php artisan spider example.com
 <?php
 
 return [
-    'task' => [
+    'tasks' => [
         [
             'name' => '文章',
             'url' => 'http://www.example.com',
