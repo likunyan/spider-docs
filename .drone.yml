@@ -1,0 +1,20 @@
+kind: pipeline
+type: docker
+name: default
+
+steps:
+  - name: build
+    image: node
+    commands:
+      - yarn build
+  - name: rsync
+    image: drillster/drone-rsync
+    settings:
+      user: root
+      key:
+        from_secret: ssh_key
+      hosts:
+        - 172.22.253.15
+      source: ./build/*
+      delete: true
+      target: /var/www/spider-docs
